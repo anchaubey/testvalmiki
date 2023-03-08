@@ -7,13 +7,13 @@ pipeline {
                  }
                  }
                  stage('Test') {
-				 when { tag "v2023-*" }
+				 when { tag "*" }
                  steps {
                     input('Do you want to proceed?')
                  }
                  }
                  stage('Deploy') {
-				 when { tag "v2023-*" }
+				 when { tag "*" }
                  parallel { 
                             stage('Deploy start ') {
                            steps {
@@ -23,7 +23,7 @@ pipeline {
                            }
                            }
                  stage('Prod') {
-				 when { tag "v2023-*" }
+				 when { tag "*" }
                      steps {
                                 echo "App is Prod Ready"
                               }
